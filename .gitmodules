@@ -1,0 +1,3 @@
+[submodule "open_schools_marketplace_frontend"]
+	path = open_schools_marketplace_frontend
+	url = https://github.com/eleneaa/open_schools_marketplace_frontend.git
