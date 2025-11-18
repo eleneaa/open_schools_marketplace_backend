@@ -5,88 +5,98 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('manifest', '0001_initial'),
+        ("manifest", "0001_initial"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='manifest',
-            name='color_scheme',
-            field=models.CharField(blank=True, choices=[('dark', 'Dark'), ('light', 'Light'), ('auto', 'Auto')], default='', max_length=10),
+            model_name="manifest",
+            name="color_scheme",
+            field=models.CharField(
+                blank=True,
+                choices=[("dark", "Dark"), ("light", "Light"), ("auto", "Auto")],
+                default="",
+                max_length=10,
+            ),
         ),
         migrations.AddField(
-            model_name='manifest',
-            name='created_at',
-            field=models.DateTimeField(auto_now_add=True, default=django.utils.timezone.now),
+            model_name="manifest",
+            name="created_at",
+            field=models.DateTimeField(
+                auto_now_add=True, default=django.utils.timezone.now
+            ),
             preserve_default=False,
         ),
         migrations.AddField(
-            model_name='manifest',
-            name='description',
-            field=models.TextField(blank=True, default=''),
+            model_name="manifest",
+            name="description",
+            field=models.TextField(blank=True, default=""),
         ),
         migrations.AddField(
-            model_name='manifest',
-            name='device_type',
+            model_name="manifest",
+            name="device_type",
             field=models.JSONField(default=list),
         ),
         migrations.AddField(
-            model_name='manifest',
-            name='dir',
-            field=models.CharField(choices=[('ltr', 'Ltr'), ('rtl', 'Rtl'), ('auto', 'Auto')], default='auto', max_length=10),
+            model_name="manifest",
+            name="dir",
+            field=models.CharField(
+                choices=[("ltr", "Ltr"), ("rtl", "Rtl"), ("auto", "Auto")],
+                default="auto",
+                max_length=10,
+            ),
         ),
         migrations.AddField(
-            model_name='manifest',
-            name='lang',
-            field=models.CharField(blank=True, default='', max_length=10),
+            model_name="manifest",
+            name="lang",
+            field=models.CharField(blank=True, default="", max_length=10),
         ),
         migrations.AddField(
-            model_name='manifest',
-            name='pages',
+            model_name="manifest",
+            name="pages",
             field=models.JSONField(default=list),
             preserve_default=False,
         ),
         migrations.AddField(
-            model_name='manifest',
-            name='platform_version',
+            model_name="manifest",
+            name="platform_version",
             field=models.JSONField(default=[]),
             preserve_default=False,
         ),
         migrations.AddField(
-            model_name='manifest',
-            name='req_permissions',
+            model_name="manifest",
+            name="req_permissions",
             field=models.JSONField(default=list),
         ),
         migrations.AddField(
-            model_name='manifest',
-            name='short_name',
-            field=models.CharField(blank=True, default='', max_length=255),
+            model_name="manifest",
+            name="short_name",
+            field=models.CharField(blank=True, default="", max_length=255),
         ),
         migrations.AddField(
-            model_name='manifest',
-            name='updated_at',
+            model_name="manifest",
+            name="updated_at",
             field=models.DateTimeField(auto_now=True),
         ),
         migrations.AddField(
-            model_name='manifest',
-            name='version',
+            model_name="manifest",
+            name="version",
             field=models.JSONField(default=dict),
         ),
         migrations.AddField(
-            model_name='manifest',
-            name='widgets',
+            model_name="manifest",
+            name="widgets",
             field=models.JSONField(default=list),
         ),
         migrations.AddField(
-            model_name='manifest',
-            name='window',
+            model_name="manifest",
+            name="window",
             field=models.JSONField(default=dict),
         ),
         migrations.AlterField(
-            model_name='manifest',
-            name='app_id',
+            model_name="manifest",
+            name="app_id",
             field=models.CharField(max_length=255, unique=True),
         ),
     ]
