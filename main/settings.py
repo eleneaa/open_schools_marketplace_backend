@@ -11,7 +11,8 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
-from config import config
+from app_settings import config
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -32,17 +33,17 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'rest_framework',
-    # 'app_version',
-    # 'apps',
-    # 'category',
-    # 'config',
-    # 'developer_profiles',
-    # 'installation',
-    # 'manifest',
-    # 'organizations',
-    # 'rating',
-    # 'subscription',
-    # 'users',
+    'app_version',
+    'apps',
+    'category',
+    'app_settings',
+    'developer_profiles',
+    'installation',
+    'manifest',
+    'organizations',
+    'rating',
+    'subscription',
+    'users',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

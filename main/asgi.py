@@ -1,5 +1,5 @@
 """
-ASGI config for main project.
+ASGI app_settings for main project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
