@@ -18,7 +18,7 @@
       <excludeFolder url="file://$MODULE_DIR$/.venv" />
       <excludeFolder url="file://$MODULE_DIR$/.venv12" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.12 (open_schools_marketplace_backend)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.13 (open_schools_marketplace_backend)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="TemplatesService">

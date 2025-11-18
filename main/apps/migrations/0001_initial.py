@@ -5,29 +5,61 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
-        ('category', '0001_initial'),
-        ('developer_profiles', '0001_initial'),
+        ("category", "0001_initial"),
+        ("developer_profiles", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='App',
+            name="App",
             fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False)),
-                ('name', models.CharField(max_length=255)),
-                ('description', models.TextField()),
-                ('type', models.CharField(choices=[('internal', 'Internal'), ('external', 'External')], max_length=10)),
-                ('status', models.CharField(choices=[('draft', 'Draft'), ('pending_review', 'Pending Review'), ('published', 'Published'), ('rejected', 'Rejected')], default='draft', max_length=15)),
-                ('icon_url', models.URLField(blank=True)),
-                ('screenshots', models.JSONField(blank=True, default=list)),
-                ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('updated_at', models.DateTimeField(auto_now=True)),
-                ('category', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='apps', to='category.category')),
-                ('developer', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='apps', to='developer_profiles.developerprofile')),
+                ("id", models.AutoField(primary_key=True, serialize=False)),
+                ("name", models.CharField(max_length=255)),
+                ("description", models.TextField()),
+                (
+                    "type",
+                    models.CharField(
+                        choices=[("internal", "Internal"), ("external", "External")],
+                        max_length=10,
+                    ),
+                ),
+                (
+                    "status",
+                    models.CharField(
+                        choices=[
+                            ("draft", "Draft"),
+                            ("pending_review", "Pending Review"),
+                            ("published", "Published"),
+                            ("rejected", "Rejected"),
+                        ],
+                        default="draft",
+                        max_length=15,
+                    ),
+                ),
+                ("icon_url", models.URLField(blank=True)),
+                ("screenshots", models.JSONField(blank=True, default=list)),
+                ("created_at", models.DateTimeField(auto_now_add=True)),
+                ("updated_at", models.DateTimeField(auto_now=True)),
+                (
+                    "category",
+                    models.ForeignKey(
+                        null=True,
+                        on_delete=django.db.models.deletion.SET_NULL,
+                        related_name="apps",
+                        to="category.category",
+                    ),
+                ),
+                (
+                    "developer",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="apps",
+                        to="developer_profiles.developerprofile",
+                    ),
+                ),
             ],
         ),
     ]

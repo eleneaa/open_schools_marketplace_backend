@@ -5,25 +5,46 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
-        ('apps', '0001_initial'),
-        ('organizations', '0001_initial'),
+        ("apps", "0001_initial"),
+        ("organizations", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Installation',
+            name="Installation",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('installed_at', models.DateTimeField(auto_now_add=True)),
-                ('app', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='installations', to='apps.app')),
-                ('organization', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='installations', to='organizations.organization')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("installed_at", models.DateTimeField(auto_now_add=True)),
+                (
+                    "app",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="installations",
+                        to="apps.app",
+                    ),
+                ),
+                (
+                    "organization",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="installations",
+                        to="organizations.organization",
+                    ),
+                ),
             ],
             options={
-                'unique_together': {('app', 'organization')},
+                "unique_together": {("app", "organization")},
             },
         ),
     ]

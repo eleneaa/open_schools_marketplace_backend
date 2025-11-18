@@ -5,26 +5,72 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
-        ('apps', '0001_initial'),
-        ('organizations', '0001_initial'),
-        ('users', '0001_initial'),
+        ("apps", "0001_initial"),
+        ("organizations", "0001_initial"),
+        ("users", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Subscription',
+            name="Subscription",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('payment_period', models.CharField(choices=[('1month', '1 Month'), ('3m', '3 Months'), ('6m', '6 Months'), ('1year', '1 Year')], max_length=10)),
-                ('last_time_pay', models.DateTimeField()),
-                ('active', models.CharField(choices=[('active', 'Active'), ('disable', 'Disable')], default='active', max_length=10)),
-                ('app', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='payments', to='apps.app')),
-                ('organization', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='payments', to='organizations.organization')),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='payments', to='users.user')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "payment_period",
+                    models.CharField(
+                        choices=[
+                            ("1month", "1 Month"),
+                            ("3m", "3 Months"),
+                            ("6m", "6 Months"),
+                            ("1year", "1 Year"),
+                        ],
+                        max_length=10,
+                    ),
+                ),
+                ("last_time_pay", models.DateTimeField()),
+                (
+                    "active",
+                    models.CharField(
+                        choices=[("active", "Active"), ("disable", "Disable")],
+                        default="active",
+                        max_length=10,
+                    ),
+                ),
+                (
+                    "app",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="payments",
+                        to="apps.app",
+                    ),
+                ),
+                (
+                    "organization",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="payments",
+                        to="organizations.organization",
+                    ),
+                ),
+                (
+                    "user",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="payments",
+                        to="users.user",
+                    ),
+                ),
             ],
         ),
     ]

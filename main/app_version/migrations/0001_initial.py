@@ -5,22 +5,28 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
-        ('apps', '0001_initial'),
+        ("apps", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='AppVersion',
+            name="AppVersion",
             fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False)),
-                ('version', models.CharField(max_length=50)),
-                ('date', models.DateField()),
-                ('description', models.TextField()),
-                ('app', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='versions', to='apps.app')),
+                ("id", models.AutoField(primary_key=True, serialize=False)),
+                ("version", models.CharField(max_length=50)),
+                ("date", models.DateField()),
+                ("description", models.TextField()),
+                (
+                    "app",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="versions",
+                        to="apps.app",
+                    ),
+                ),
             ],
         ),
     ]

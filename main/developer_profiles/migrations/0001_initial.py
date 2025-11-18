@@ -5,19 +5,25 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
-        ('users', '0001_initial'),
+        ("users", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='DeveloperProfile',
+            name="DeveloperProfile",
             fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False)),
-                ('user', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, related_name='developer_profile', to='users.user')),
+                ("id", models.AutoField(primary_key=True, serialize=False)),
+                (
+                    "user",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="developer_profile",
+                        to="users.user",
+                    ),
+                ),
             ],
         ),
     ]

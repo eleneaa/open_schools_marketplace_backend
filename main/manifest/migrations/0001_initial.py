@@ -5,22 +5,36 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
-        ('apps', '0001_initial'),
+        ("apps", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Manifest',
+            name="Manifest",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('icons', models.JSONField(default=list)),
-                ('name', models.CharField(max_length=255)),
-                ('app_id', models.IntegerField()),
-                ('app_table_id', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, related_name='manifest', to='apps.app')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("icons", models.JSONField(default=list)),
+                ("name", models.CharField(max_length=255)),
+                ("app_id", models.IntegerField()),
+                (
+                    "app_table_id",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="manifest",
+                        to="apps.app",
+                    ),
+                ),
             ],
         ),
     ]
