@@ -30,8 +30,8 @@ class App(models.Model):
         on_delete=models.CASCADE,
         related_name="apps",
     )
-    categories = models.ManyToManyField(
-        "category.Category", null=True, related_name="apps"
+    category = models.ForeignKey(
+        "category.Category", on_delete=models.SET_NULL, null=True, related_name="apps"
     )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

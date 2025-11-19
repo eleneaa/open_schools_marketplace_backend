@@ -221,7 +221,6 @@ class IsDeveloperPermissionTest(APITestCase):
             user=self.developer_user
         )
 
-
         self.school_admin_user = User.objects.create_user(
             email="admin@test.com",
             login="admin",
@@ -271,4 +270,3 @@ class IsDeveloperPermissionTest(APITestCase):
         view = type("MockView", (), {"action": "retrieve"})
 
         self.assertFalse(self.permission.has_permission(request, view))
-
