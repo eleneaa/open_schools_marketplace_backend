@@ -26,7 +26,11 @@ class JWTService:
             "exp": time_now + timedelta(days=settings.JWT_REFRESH_TOKEN_LIFETIME),
         }
 
-        access_token = jwt.encode(access_payload, settings.JWT_SECRET_KEY, algorithm=settings.JWT_ALGORITHM)
-        refresh_token = jwt.encode(refresh_payload, settings.JWT_SECRET_KEY, algorithm=settings.JWT_ALGORITHM)
+        access_token = jwt.encode(
+            access_payload, settings.JWT_SECRET_KEY, algorithm=settings.JWT_ALGORITHM
+        )
+        refresh_token = jwt.encode(
+            refresh_payload, settings.JWT_SECRET_KEY, algorithm=settings.JWT_ALGORITHM
+        )
 
         return access_token, refresh_token

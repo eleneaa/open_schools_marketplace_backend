@@ -9,7 +9,6 @@ from users.serializers import RegisterSerializer
 
 
 class RegisterView(APIView):
-
     @register_schema
     def post(self, request):
         try:
@@ -28,7 +27,7 @@ class RegisterView(APIView):
                     "access": access_token,
                     "refresh": refresh_token,
                 },
-                "user": serializer.data
+                "user": serializer.data,
             },
-            status=status.HTTP_201_CREATED
+            status=status.HTTP_201_CREATED,
         )
