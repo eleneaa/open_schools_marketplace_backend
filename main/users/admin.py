@@ -3,6 +3,7 @@ from django.contrib import admin
 
 from users.models import User
 
+
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
     list_display = ("id", "email", "login", "type", "active", "created_at")
@@ -13,20 +14,19 @@ class UserAdmin(admin.ModelAdmin):
     readonly_fields = ("created_at", "updated_at")
 
     fieldsets = (
-        ("Основное", {
-            "fields": (
-                "email",
-                "login",
-                "type",
-                "password",
-                "active",
-                "icon",
-            )
-        }),
-        ("Организации", {
-            "fields": ("organizations",)
-        }),
-        ("Системные", {
-            "fields": ("created_at", "updated_at")
-        }),
+        (
+            "Основное",
+            {
+                "fields": (
+                    "email",
+                    "login",
+                    "type",
+                    "password",
+                    "active",
+                    "icon",
+                )
+            },
+        ),
+        ("Организации", {"fields": ("organizations",)}),
+        ("Системные", {"fields": ("created_at", "updated_at")}),
     )
