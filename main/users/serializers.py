@@ -28,3 +28,9 @@ class RegisterSerializer(serializers.ModelSerializer):
         user = User.objects.create_user(password=password, **validated_data)
 
         return user
+
+
+class RegisterConflictErrorSerializer(serializers.Serializer):
+    Error = serializers.DictField(
+        child=serializers.ListField(child=serializers.CharField())
+    )
