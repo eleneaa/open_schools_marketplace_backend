@@ -7,3 +7,6 @@ migrate:
 
 run:
 	python manage.py runserver localhost:8000
+
+test:
+	pytest --cache-clear
