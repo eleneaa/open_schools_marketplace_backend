@@ -66,7 +66,7 @@ login_schema = extend_schema(
             examples=[
                 OpenApiExample(
                     "Invalid credentials",
-                    value={"Error": {"non_field_errors": ["Invalid email or password"]}}
+                    value={"error": {"non_field_errors": ["invalid_credentials"]}}
                 )
             ]
         )
