@@ -1,6 +1,8 @@
 from datetime import datetime, timezone, timedelta
+from typing import Optional
 
 import jwt
+from jwt import DecodeError
 
 import settings
 from users.models import User
@@ -34,3 +36,9 @@ class JWTService:
         )
 
         return access_token, refresh_token
+
+    def decode_token(self, token: str) -> Optional[dict]:
+        decode = jwt.decode(jwt=token,
+                            key=settings.JWT_SECRET_KEY,
+                            algorithms=[settings.JWT_ALGORITHM])
+        return decode

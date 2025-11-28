@@ -31,20 +31,26 @@ Follow these steps to set up and run the project in a development environment.
     ```bash
     pip install -r requirements.txt
     ```
+   
+4. **Set Up Environment Variables:**
+    Copy the environment template file and configure it with your own values:
+    ```bash
+    cp .env.example .env
+    ```
 
-4. **Start the Database:**
+5. **Start the Database:**
     Use Docker Compose to start the database service.
     ```bash
     docker-compose up -d
     ```
 
-5. **Run Database Migrations:**
+6. **Run Database Migrations:**
     Apply the database migrations to set up the schema using the command format mentioned above.
     ```bash
     python manage.py migrate
     ```
 
-6. **Run the Development Server:**
+7. **Run the Development Server:**
     Start the Django development server using the same `PYTHONPATH` setup.
     ```bash
     python manage.py runserver
