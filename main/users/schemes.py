@@ -1,6 +1,7 @@
 from drf_spectacular.utils import extend_schema, OpenApiResponse, OpenApiExample
 
 from users.serializers import RegisterSerializer, RegisterConflictErrorSerializer
+from users.serializers import LoginSerializer, UserProfileSerializer
 
 register_schema = extend_schema(
     summary="Register a new user",
@@ -30,6 +31,45 @@ register_schema = extend_schema(
                 ),
             ],
         ),
+    },
+    tags=["users"],
+)
+
+login_schema = extend_schema(
+    summary="User login",
+    description="Authenticate user and return JWT tokens and user profile",
+    request=LoginSerializer,
+    responses={
+        200: OpenApiResponse(
+            response=UserProfileSerializer,
+            description="Successful authentication",
+            examples=[
+                OpenApiExample(
+                    "Success Response",
+                    value={
+                        "token": {
+                            "access": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9...",
+                            "refresh": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..."
+                        },
+                        "user": {
+                            "id": 1,
+                            "email": "user@example.com",
+                            "login": "username",
+                            "type": "developer"
+                        }
+                    }
+                )
+            ]
+        ),
+        401: OpenApiResponse(
+            description="Invalid credentials",
+            examples=[
+                OpenApiExample(
+                    "Invalid credentials",
+                    value={"error": {"non_field_errors": ["invalid_credentials"]}}
+                )
+            ]
+        )
     },
     tags=["users"],
 )
