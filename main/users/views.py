@@ -1,11 +1,13 @@
 from rest_framework import status
 from rest_framework.exceptions import ValidationError
+from rest_framework.generics import RetrieveAPIView
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from users.jwt_utils import JWTService
 from users.schemes import register_schema
-from users.serializers import RegisterSerializer
+from users.serializers import RegisterSerializer, MeSerializer
 
 
 class RegisterView(APIView):
@@ -31,3 +33,11 @@ class RegisterView(APIView):
             },
             status=status.HTTP_201_CREATED,
         )
+
+
+class MeView(RetrieveAPIView):
+    serializer_class = MeSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_object(self):
+        return self.request.user

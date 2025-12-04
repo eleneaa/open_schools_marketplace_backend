@@ -34,3 +34,9 @@ class RegisterConflictErrorSerializer(serializers.Serializer):
     Error = serializers.DictField(
         child=serializers.ListField(child=serializers.CharField())
     )
+
+
+class MeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ["id", "email", "type", "icon"]

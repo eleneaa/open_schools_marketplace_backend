@@ -1,6 +1,8 @@
 import os
 
-SECRET_KEY = os.environ.get("SECRET_KEY", "django-insecure-)@#djte1uunyz)-cjrf1tte^ljapdb=t*ejeo)nhs(4ldifxuz")
+SECRET_KEY = os.environ.get(
+    "SECRET_KEY", "django-insecure-)@#djte1uunyz)-cjrf1tte^ljapdb=t*ejeo)nhs(4ldifxuz"
+)
 DEBUG = os.environ.get("DEBUG", True)
 
 POSTGRES_USER = os.environ.get("POSTGRES_USER", "postgres")

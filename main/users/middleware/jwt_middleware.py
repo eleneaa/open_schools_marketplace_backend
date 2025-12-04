@@ -14,10 +14,7 @@ class JWTMiddleware(MiddlewareMixin):
         request_authorization = request.headers.get("Authorization")
 
         if not request_authorization or not request_authorization.startswith("Bearer"):
-            return JsonResponse(
-                {"Error": "Unauthorized"},
-                status=401
-            )
+            return JsonResponse({"Error": "Unauthorized"}, status=401)
 
         try:
             token = request_authorization.split()[1]
@@ -34,13 +31,12 @@ class JWTMiddleware(MiddlewareMixin):
             user_id = payload["user_id"]
             user = user_service.get_user_by_user_id(id=user_id)
 
-        except (jwt.InvalidTokenError,
-                jwt.DecodeError,
-                User.DoesNotExist,):
-            return JsonResponse(
-                {"Error": "Unauthorized"},
-                status=401
-            )
+        except (
+            jwt.InvalidTokenError,
+            jwt.DecodeError,
+            User.DoesNotExist,
+        ):
+            return JsonResponse({"Error": "Unauthorized"}, status=401)
 
         else:
             request.user = user
