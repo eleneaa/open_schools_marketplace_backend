@@ -11,7 +11,6 @@ DEBUG = config.DEBUG
 ALLOWED_HOSTS = []
 
 
-
 DJANGO_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -31,6 +30,7 @@ LOCAL_APPS = [
     "app_version",
     "apps",
     "category",
+    "config",
     "app_settings",
     "developer_profiles",
     "installation",
@@ -42,7 +42,6 @@ LOCAL_APPS = [
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
-
 
 
 REST_FRAMEWORK = {
