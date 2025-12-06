@@ -1,5 +1,7 @@
 from django.db import models
 
+
+
 # Create your models here.
 
 
@@ -13,6 +15,9 @@ class Installation(models.Model):
         related_name="installations",
     )
     installed_at = models.DateTimeField(auto_now_add=True)
+    config = models.ForeignKey("config.Config", on_delete=models.DO_NOTHING)
+    active = models.BooleanField(default=True)
+    installed_by = models.ForeignKey("users.User", on_delete=models.DO_NOTHING)
 
     class Meta:
         unique_together = ["app", "organization"]
